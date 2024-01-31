@@ -1,16 +1,30 @@
 package org.example.models;
 
-import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Team {
+    @JsonProperty("team_name")
     private String teamName;
+    private String league;
+    private String division;
     private int wins;
     private int losses;
-    private List<Batter> batters;
-    private List<Pitcher> pitchers;
 
     public String getTeamName() {
         return teamName;
+    }
+    public void setTeamName(String teamName) {
+    }
+    public String getLeague() {
+        return league;
+    }
+    public void setLeague(String league){
+    }
+    public String getDivision() {
+        return division;
+    }
+    public void setDivision(String division) {
     }
     public int getWins() {
         return wins;
@@ -23,12 +37,12 @@ public class Team {
     public void setLosses(int losses){
     }
 
-    public Team(String teamName,int wins, int losses, List<Batter> batters, List<Pitcher> pitchers) {
+    public Team(String teamName, String league, String division, int wins, int losses) {
         this.teamName = teamName;
+        this.league = league;
+        this.division = division;
         this.wins = wins;
         this.losses = losses;
-        this.batters = batters;
-        this.pitchers = pitchers;
     }
     public Team() {
     }

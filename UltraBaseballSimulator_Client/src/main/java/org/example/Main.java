@@ -1,11 +1,18 @@
 package org.example;
 
+import org.example.dao.JdbcTeamDao;
+import org.example.dao.TeamDao;
 import org.example.models.Batter;
 import org.example.models.Pitcher;
+import org.example.models.Team;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
+    private final TeamDao teamDao;
+
     public static void main(String[] args) {
         DecimalFormat df = new DecimalFormat(".###");
         System.out.println("Hello world!");
@@ -17,6 +24,13 @@ public class Main {
         Pitcher pitcher1 = new Pitcher();
         pitcher1.setBattersFaced(46);
         pitcher1.setHits(24);
-        System.out.println("Pitcher1's Batting AVG agains is :" + df.format(pitcher1.getBattingAvgAgainst()));
+        System.out.println("Pitcher1's Batting AVG against is :" + df.format(pitcher1.getBattingAvgAgainst()));
+
+
+
+        System.out.println("Baseball Teams");
+        for(String team: teamDao.getAllTeams()) {
+            System.out.println(team.getName());
+        }
     }
 }

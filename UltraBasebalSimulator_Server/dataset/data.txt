@@ -1,0 +1,53 @@
+START TRANSACTION;
+
+DROP TABLE if exists teams;
+
+CREATE TABLE teams (
+	team_id serial,
+	team_name varchar(100) NOT NULL,
+	league varchar(100),
+	division varchar(100) NOT NULL,
+	wins int,
+	losses int,
+	CONSTRAINT PK_team PRIMARY KEY(team_id)
+);
+
+SELECT * FROM teams;
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Cleveland Guardians', 'American', 'Central', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Detroit Tigers', 'American', 'Central', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Minnesota Twins', 'American', 'Central', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Chicago White Sox', 'American', 'Central', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Kansas City Royals', 'American', 'Central', 0, 0);
+
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Baltimore Orioles', 'American', 'East', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('New York Yankees', 'American', 'East', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Boston Red Sox', 'American', 'East', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Toronto Blue Jays', 'American', 'East', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Tampa Bay Rays', 'American', 'East', 0, 0);
+
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Texas Rangers', 'American', 'West', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Houston Astros', 'American', 'West', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Oakland Athletics', 'American', 'West', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Los Angeles Angels', 'American', 'West', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Seattle Mariners', 'American', 'West', 0, 0);
+
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Cincinatti Reds', 'National', 'Central', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Milwaukee Brewers', 'National', 'Central', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Chicago Cubs', 'National', 'Central', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('St. Louis Cardinals', 'National', 'Central', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Pittsburgh', 'Pirates', 'Central', 0, 0);
+
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('New York Mets', 'National', 'East', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Washington Nationals', 'National', 'East', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Atlanta Braves', 'National', 'East', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Miami Marlins', 'National', 'East', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Philadelphia Phillies', 'National', 'East', 0, 0);
+
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Los Angeles Dodgers', 'National', 'West', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('San Diego Padres', 'National', 'West', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('San Francisco Giants', 'National', 'West', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Arizona Diamondbacks', 'National', 'West', 0, 0);
+INSERT INTO teams (team_name, league, division, wins, losses) VALUES ('Colorado Rockies', 'National', 'West', 0, 0);
+
+SELECT * FROM teams;
+COMMIT;

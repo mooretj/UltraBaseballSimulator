@@ -1,10 +1,10 @@
-package org.example.UltraBaseballSimulator;
+package com.example.UltraBaseballSimulatorServer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UltraBaseballSimulatorApplicationTests {
+class UltraBaseballSimulatorServerApplicationTests {
 
 	@Test
 	void contextLoads() {
