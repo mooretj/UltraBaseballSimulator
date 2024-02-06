@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.dao.JdbcTeamDao;
+import org.example.dao.*;
 import org.example.dao.TeamDao;
 import org.example.models.Batter;
 import org.example.models.Pitcher;
@@ -13,7 +13,12 @@ import java.util.List;
 public class Main {
     private final TeamDao teamDao;
 
+    public Main(TeamDao teamDao) {
+        this.teamDao = teamDao;
+    }
+
     public static void main(String[] args) {
+
         DecimalFormat df = new DecimalFormat(".###");
         System.out.println("Hello world!");
         Batter batter1 = new Batter();
@@ -29,8 +34,8 @@ public class Main {
 
 
         System.out.println("Baseball Teams");
-        for(String team: teamDao.getAllTeams()) {
-            System.out.println(team.getName());
+        for(Team team: teamDao.getAllTeams()) {
+            System.out.println(team.getTeamName());
         }
     }
 }
