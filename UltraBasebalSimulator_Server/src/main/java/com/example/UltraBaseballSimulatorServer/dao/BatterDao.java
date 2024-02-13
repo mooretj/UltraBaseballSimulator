@@ -1,12 +1,11 @@
-package org.example.dao;
+package com.example.UltraBaseballSimulatorServer.dao;
 
-import org.example.models.Batter;
-import org.example.exception.DaoException;
+import com.example.UltraBaseballSimulatorServer.model.Batter;
+import com.example.UltraBaseballSimulatorServer.exception.*;
 
 import java.util.List;
 
 public interface BatterDao {
-
     /**
      * @param teamName Name of the team.
      * @return List of all batters on this team.

@@ -1,4 +1,4 @@
-package org.example.exception;
+package com.example.UltraBaseballSimulatorServer.exception;
 
 public class DaoException extends RuntimeException {
     public DaoException() {

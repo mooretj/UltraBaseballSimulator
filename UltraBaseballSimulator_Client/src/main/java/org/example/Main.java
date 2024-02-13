@@ -11,11 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    private final TeamDao teamDao;
-
-    public Main(TeamDao teamDao) {
-        this.teamDao = teamDao;
-    }
 
     public static void main(String[] args) {
 
@@ -31,11 +26,5 @@ public class Main {
         pitcher1.setHits(24);
         System.out.println("Pitcher1's Batting AVG against is :" + df.format(pitcher1.getBattingAvgAgainst()));
 
-
-
-        System.out.println("Baseball Teams");
-        for(Team team: teamDao.getAllTeams()) {
-            System.out.println(team.getTeamName());
-        }
     }
 }

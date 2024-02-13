@@ -1,6 +1,6 @@
-package org.example.dao;
+package com.example.UltraBaseballSimulatorServer.dao;
 
-import org.example.models.Pitcher;
+import com.example.UltraBaseballSimulatorServer.model.Pitcher;
 
 import java.util.ArrayList;
 import java.util.List;

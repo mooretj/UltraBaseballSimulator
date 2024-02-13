@@ -1,11 +1,8 @@
-package org.example.dao;
-
-import org.example.exception.DaoException;
-import org.example.models.Pitcher;
+package com.example.UltraBaseballSimulatorServer.dao;
 
 import java.util.List;
-
-
+import com.example.UltraBaseballSimulatorServer.exception.*;
+import com.example.UltraBaseballSimulatorServer.model.Pitcher;
 public interface PitcherDao {
     /**
      * @param teamName name of the team

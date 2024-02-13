@@ -1,22 +1,21 @@
-package org.example.dao;
+package com.example.UltraBaseballSimulatorServer.dao;
 
-import org.example.exception.DaoException;
-import org.example.models.Team;
-import org.springframework.dao.DataIntegrityViolationException;
+import com.example.UltraBaseballSimulatorServer.exception.DaoException;
+import com.example.UltraBaseballSimulatorServer.model.Team;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcTeamDao implements TeamDao {
-
     private final JdbcTemplate jdbcTemplate;
-    private final TeamDao teamDao;
 
-    public JdbcTeamDao(JdbcTemplate jdbcTemplate, TeamDao teamDao) {
+    public JdbcTeamDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
-        this.teamDao = teamDao;
     }
 
     @Override
@@ -34,6 +33,22 @@ public class JdbcTeamDao implements TeamDao {
             throw new DaoException("Unable to connect to server or database");
         }
         return teams;
+    }
+
+    @Override
+    public Team getTeamByTeamName(String teamName) {
+        Team team = new Team();
+        String sql = "SELECT * FROM teams WHERE team_name = ?";
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, teamName);
+            if (results.next()) {
+                team = mapRowToTeam(results);
+            }
+        }
+        catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database");
+        }
+        return team;
     }
 
     private Team mapRowToTeam(SqlRowSet t) {
