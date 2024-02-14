@@ -38,7 +38,7 @@ public class JdbcTeamDao implements TeamDao {
     @Override
     public Team getTeamByTeamName(String teamName) {
         Team team = new Team();
-        String sql = "SELECT * FROM teams WHERE team_name = ?";
+        String sql = "SELECT team_name, league, division, wins, losses FROM teams WHERE team_name = ?";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, teamName);
             if (results.next()) {

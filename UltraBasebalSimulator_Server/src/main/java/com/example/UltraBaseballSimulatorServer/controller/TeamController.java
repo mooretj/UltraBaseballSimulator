@@ -17,13 +17,13 @@ public class TeamController {
     }
 
     @ResponseStatus(HttpStatus.ACCEPTED)
-    @RequestMapping(path = "", method = RequestMethod.GET)
+    @GetMapping
     public List<Team> getListOfTeams() {
         return teamDao.getAllTeams();
     }
 
     @ResponseStatus(HttpStatus.ACCEPTED)
-    @RequestMapping(path = "{teamName}", method = RequestMethod.GET)
+    @GetMapping("{teamName}")
     public Team getTeamByName(@PathVariable String teamName) {
         return teamDao.getTeamByTeamName(teamName);
     }
