@@ -18,16 +18,10 @@ public class TeamService {
         restTemplate.getInterceptors().add(new HeaderInspectingInterceptor());
     }
 
-    public List<Team> getTeamList() {
-            List<Team> teamList = null;
+    public Team[] getTeamList() {
+            Team[] teamList = null;
             try {
-                ResponseEntity<List<Team>> responseEntity = restTemplate.exchange(
-                        API_BASE_URL + "teams/",
-                        HttpMethod.GET,
-                        null,
-                        new ParameterizedTypeReference<List<Team>>() {}
-                );
-                teamList = responseEntity.getBody();
+                teamList = restTemplate.getForObject(API_BASE_URL + "teams/", Team[].class);
             } catch (RestClientResponseException e) {
                 System.out.println(e.getRawStatusCode() + " : " + e.getStatusText());
             } catch (ResourceAccessException e) {

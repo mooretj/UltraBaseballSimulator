@@ -34,8 +34,7 @@ public class Main {
 
     }
     private void run() {
-        List<Team> teams;
-        teams = teamService.getTeamList();
+        Team[] teams = teamService.getTeamList();
         for(Team team : teams) {
             System.out.println(team.getTeamName());
         }

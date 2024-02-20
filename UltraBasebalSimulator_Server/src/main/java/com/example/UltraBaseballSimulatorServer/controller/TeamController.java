@@ -18,7 +18,7 @@ public class TeamController {
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @GetMapping
-    public List<Team> getListOfTeams() {
+    public Team[] getListOfTeams() {
         return teamDao.getAllTeams();
     }
 

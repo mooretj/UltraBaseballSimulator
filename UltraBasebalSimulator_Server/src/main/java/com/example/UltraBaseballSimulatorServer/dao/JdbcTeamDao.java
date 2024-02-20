@@ -19,14 +19,16 @@ public class JdbcTeamDao implements TeamDao {
     }
 
     @Override
-    public List<Team> getAllTeams() {
-        List<Team> teams = new ArrayList<>();
+    public Team[] getAllTeams() {
+        int i = 0;
+        Team[] teams = new Team[30];
         String sql = "SELECT team_name, league, division, wins, losses FROM teams";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             while (results.next()) {
                 Team team = mapRowToTeam(results);
-                teams.add(team);
+                teams[i] = team;
+                i++;
             }
         }
         catch (CannotGetJdbcConnectionException e) {
